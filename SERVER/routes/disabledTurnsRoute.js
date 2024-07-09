@@ -10,18 +10,6 @@ router.use(cors({
   }));
 
 
-// router.get("/", async(req, res) => {
-//     try{
-
-//     const disabledTurns = await controller.getDisabledTurns();
-//     res.status(200).send(disabledTurns)
-//     }
-//     catch(err)
-//     {
-//         res.status(500).send(err)
-//     }
-// });
-
 router.get("/", async (req, res) => {
     try {
         const disabledTurns = await controller.getDisabledTurns();
@@ -33,7 +21,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        await controller.createDisabledTurns(req.body.date, req.body.hour);
+        await controller.createDisabledTurns(req.body.date, req.body.startTimeHour, req.body.startTimeMinutes, req.body.endTimeHour,  req.body.endTimeMinutes);
         res.status(200).send(await controller.getDisabledTurns());
     } catch (error) {
         res.status(500).send({ message: 'Error creating disabled turn', error });

@@ -1,7 +1,7 @@
 const modelWorkHours = require('../model/WorkHoursModel')
-async function createWorkHours(employeeId, date, startTime, endTime, duration) {
+async function createWorkHour(employeeId, date, startTime) {
     try {
-        return modelWorkHours.createWorkHours(employeeId, date, startTime, endTime, duration);
+        return modelWorkHours.createWorkHour(employeeId, date, startTime);
     } catch (err) {
         throw err;
     }
@@ -21,6 +21,7 @@ async function getWorkHoursOfEmployeeByCurrentMonth(employeeId) {
         throw err;
     }
 }
+
 async function getWorkHoursByCurrentMonth() {
     try {
         const currentDate = new Date();
@@ -41,4 +42,4 @@ async function updateWorkHour(id, employeeId, date, startTime, endTime, duration
         throw err;
     }
 }
-module.exports = { getWorkHoursByCurrentMonth, createWorkHours, getWorkHoursOfEmployeeByCurrentMonth, updateWorkHour }
+module.exports = { getWorkHoursByCurrentMonth, createWorkHour, getWorkHoursOfEmployeeByCurrentMonth, updateWorkHour }

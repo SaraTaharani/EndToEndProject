@@ -20,9 +20,9 @@ const Orders = () => {
 
   const handleCreateOrder = (order, client) => {
     setModalOpen(false);
+    postNewObject("orders", order)
+    .then(data => {
       updateObject("clients", order.clientId, client);
-      postNewObject("orders", order)
-      .then(data => {
         setOrders([...data]);
         setOrdersFilter([...data]);
       });
@@ -39,7 +39,7 @@ const Orders = () => {
     <button type="button" onClick={() => setModalOpen(true)}>
       הזמנה חדשה
     </button>
-    {isModalOpen && <EditingOrder handleCreateOrder={handleCreateOrder} />}
+    {isModalOpen && <EditingOrder handle={handleCreateOrder}/>}
     <SearchOptions setListFilter={setOrdersFilter} list={orders} />
     <div className="orders-container">
       {ordersFilter.map((order, index) => (

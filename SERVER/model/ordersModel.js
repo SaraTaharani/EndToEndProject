@@ -64,6 +64,7 @@ async function getOrdersOfClient(userId){
 
 async function createOrder(date, returnDate, clientId, dressId, repairs, paidInAdvance, accessoriesId) {
     try {
+        console.log('model order')
         const sql = 'INSERT INTO orders (date, returnDate, clientId, dressId, repairs, paidInAdvance) VALUES (?,?,?,?,?,?)';
         const resultOrder = await pool.query(sql, [date, returnDate, clientId, dressId, repairs, paidInAdvance]);
         if (accessoriesId) {

@@ -75,7 +75,10 @@ CREATE TABLE turns(
 CREATE TABLE disabledTurns(
       id INT auto_increment PRIMARY KEY,
       date DATE NOT NULL,
-      hour varchar(20)
+	  startTimeHour INT NOT NULL,
+      startTimeMinutes INT NOT NULL,
+      endTimeHour INT NOT NULL,
+      endTimeMinutes INT NOT NULL
 );
 
 CREATE TABLE activityTime(
@@ -129,9 +132,9 @@ CREATE TABLE workHours (
     id INT AUTO_INCREMENT PRIMARY KEY,
     employeeId INT NOT NULL,
     date DATE,
-    startTime TIME,
-    endTime TIME,
-    duration DOUBLE,
+    startTime varchar(15),
+    endTime varchar(15),
+    duration int,
     FOREIGN KEY (employeeId) REFERENCES users(id)
 );
 
@@ -158,9 +161,7 @@ INSERT INTO passwords (userId, password) VALUES
 (1, '$2b$10$knwNDV/20eaD6UZLO5jcHeGy0C34NuRkJ.H8onO2rCu1Avdu979mC'),
 (2, '$2b$10$vQrSNw9pAks3hsZ49bJCye31iSph97ZJTtU2NMLNcVJt9g672wmYm'),
 (3, '$2b$10$VFZ6MEb61Kk9ZaaRmviBg.odjTCjNQD8pADCVsMESAHqMOZs1C8Aq'),
-(4, '$2b$10$yGjqlEpP/TNxKy2gfPvnDO1tkEVa8XfQmqT.Whq8hOQdhvO.JaIp6'),
-(5, '1');
-
+(4, '$2b$10$yGjqlEpP/TNxKy2gfPvnDO1tkEVa8XfQmqT.Whq8hOQdhvO.JaIp6');
 
 -- הוספת נתונים לטבלת turnTypes
 INSERT INTO turnTypes (type) VALUES 
@@ -199,14 +200,10 @@ INSERT INTO accessoriesInOrder (orderId, accessoryId) VALUES
 (1, 3);
 
 -- הוספת נתונים לטבלת disabledTurns
-INSERT INTO disabledTurns (date, hour) VALUES 
-('2024-05-30', 14),
-('2024-07-02', 14),
-('2024-05-31', 8),
-('2024-06-08', 1),
-('2024-06-01',null);
-
-
+INSERT INTO disabledTurns (date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes) VALUES 
+('2024-05-30', 9, 0, 11, 0),
+('2024-07-02',  9, 0, 12, 0),
+('2024-05-31',  9, 0,13, 0);
 INSERT INTO activityTime (day, startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes)
 VALUES
 ('Sunday', 9, 0, 17, 0),
@@ -222,7 +219,7 @@ INSERT INTO gallery (imageUrl) VALUES
 
 -- הוספת נתונים לטבלת work_hours
 INSERT INTO workHours (employeeId, date, startTime, endTime, duration) 
-VALUES (1, '2024-06-01', '20:30:00', '22:00:00', 1.5);
+VALUES (4, '2024-06-01', '20:30:00', '22:00:00',90);
 
-SELECT * FROM users where email='ey3242363@gmail.com'
+
 

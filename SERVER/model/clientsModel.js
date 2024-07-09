@@ -41,7 +41,7 @@ async function getClients(){
 
 async function updateClient(id, userId, name, email, phone1, phone2, hashedPassword,weddingDate){
   try{
-      const sqlUser= 'UPDATE users SET userId=? name=? email=? phone1=? phone2=? WHERE id=?';
+      const sqlUser= 'UPDATE users SET userId=?, name=?, email=?, phone1=?, phone2=? WHERE id=?';
       const resultUser = await pool.query(sqlUser, [userId, name, email, phone1, phone2, id]);
       const sqlPassword= 'UPDATE passwords SET password=? WHERE userId=?';
       const resultPassword = await pool.query(sqlPassword, [hashedPassword, id]);

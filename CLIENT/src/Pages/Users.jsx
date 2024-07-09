@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { getData, postNewObject, updateObject, deleteObject } from '../../Fetch';
+import React, { useState, useEffect ,useContext} from 'react';
+import { getData, postNewObject, deleteObject } from '../../Fetch';
 import GenericChanges from '../Components/GenericChanges';
 import SearchOptions from '../Components/SearchOptions';
 import '../css/users.css'
+import WorkHoursOfEmployees from '../Components/WorkHoursOfEmployees';
+import { UserContext } from '../App';
 
 const Users = () => {
+    const user = useContext(UserContext);
     const [users, setUsers] = useState([]);
     const [usersFilter,setUsersFilter] = useState([]);
+    const [showWorkHours, setShowWorkHours]=useState(false);
     const userData = {
         userId: "",
         name: "",
@@ -91,6 +95,8 @@ const Users = () => {
                 </tbody>
             </table>
         </div>
+        <button onClick={()=>setShowWorkHours(true)}>ראה שעות עובדים</button>
+        {showWorkHours && <WorkHoursOfEmployees employeeId={userData.id}/>}
     </>
     );
 };

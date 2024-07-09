@@ -30,12 +30,12 @@ const Accessories = () => {
                         setAccessories([...data])
                     });
                 break;
-            case 'delete':
-                deleteObject("accessories", accessory.id)
-                    .then(data => {
-                        setAccessories([...data])
-                    });
-                break;
+            // case 'delete':
+            //     deleteObject("accessories", accessory.id)
+            //         .then(data => {
+            //             setAccessories([...data])
+            //         });
+            //     break;
             default:
                 break;
         }

@@ -59,9 +59,6 @@ export function getDataById(type, id) {
 }
 
 export function postNewObject(type, object) {
-   console.log(type)
-   console.log(object)
-   console.log(`http://localhost:3000/${type}`)
    return fetch(`http://localhost:3000/${type}`, {
       method: 'POST',
       headers: {
@@ -71,13 +68,7 @@ export function postNewObject(type, object) {
    })
       .then(res => res.json())
       .then(data => {
-         if (data.ok) {
             return data;
-         }
-         else {
-            throw new Error('I did not succed to post the object  ')
-         }
-
       })
       .catch(err => {console.error(`Error posting ${type}:`, err)
       return null});

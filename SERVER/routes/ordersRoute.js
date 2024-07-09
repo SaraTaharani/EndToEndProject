@@ -26,6 +26,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const response = await controller.createOrder(req.body.date, req.body.returnDate, req.body.clientId, req.body.dressId, req.body.repairs, req.body.paidInAdvance, req.body.accessoriesId)
     res.status(201).send(await controller.getAllOrdrers())
 })

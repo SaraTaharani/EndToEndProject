@@ -14,9 +14,9 @@ async function deleteDisabledTurns(id) {
         throw err;
     }
 }
-async function createDisabledTurns( date,hour){
+async function createDisabledTurns(date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes){
     try {
-        return model.createDisabledTurns(date,hour);
+        return model.createDisabledTurns(date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes);
     } catch (err) {
         throw err;
     }

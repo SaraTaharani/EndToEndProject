@@ -16,7 +16,7 @@ async function getWorkHoursByCurrentMonth( FirstDay,LastDay) {
 
 async function getWorkHoursOfEmployeeByCurrentMonth(employeeId, FirstDay,LastDay) {
     try {
-        
+        console.log("model get")
         const sql = 'SELECT * FROM workHours WHERE employeeId=? AND date BETWEEN ? AND ?';
         const result = await pool.query(sql, [employeeId, FirstDay, LastDay]);
         return result[0];
@@ -25,10 +25,10 @@ async function getWorkHoursOfEmployeeByCurrentMonth(employeeId, FirstDay,LastDay
     }
 }
 
-async function createWorkHours(employeeId, date, startTime, endTime, duration) {
+async function createWorkHour(employeeId, date, startTime) {
     try {
-        const sql = 'INSERT INTO workHours (employeeId, date, startTime, endTime, duration) VALUES (?,?,?,?,?)';
-        const result = await pool.query(sql, [employeeId, date, startTime, endTime, duration]);
+        const sql = 'INSERT INTO workHours (employeeId, date, startTime) VALUES (?,?,?)';
+        const result = await pool.query(sql, [employeeId, date, startTime]);
         return result[0].insertId;
     } catch (err) {
         throw err;
@@ -45,4 +45,4 @@ async function updateWorkHour(id, employeeId, date, startTime, endTime, duration
     }
 }
 
-module.exports = { createWorkHours, getWorkHoursByCurrentMonth, getWorkHoursOfEmployeeByCurrentMonth, updateWorkHour };
+module.exports = { createWorkHour, getWorkHoursByCurrentMonth, getWorkHoursOfEmployeeByCurrentMonth, updateWorkHour };

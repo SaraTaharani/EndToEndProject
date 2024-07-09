@@ -30,9 +30,9 @@ router.get("/:id", async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { employeeId, date, startTime, endTime, duration } = req.body;
-        const response = await controller.createWorkHours(employeeId, date, startTime, endTime, duration);
-        res.status(201).send(await controller.getWorkHoursOfEmployeeByCurrentMonth(employeeId));
+        const { employeeId, date, startTime} = req.body;
+        const response = await controller.createWorkHour(employeeId, date, startTime);
+        res.status(200).send(await controller.getWorkHoursOfEmployeeByCurrentMonth(employeeId));
     } catch (err) {
         res.status(500).send(err.message);
     }

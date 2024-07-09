@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        await controller.createAccessory(req.body.type);
+        const response=await controller.createAccessory(req.body.type);
         res.status(200).send(await controller.getAllAccessories());
     } catch (error) {
         res.status(500).send({ message: 'Error creating accessory', error });
@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
     try {
         const id = req.params.id;
-        await controller.updateAccessory(id, req.body.type);
+        const response=await controller.updateAccessory(id, req.body.type);
         res.status(200).send(await controller.getAllAccessories());
     } catch (error) {
         res.status(500).send({ message: `Error updating accessory with ID ${id}`, error });
@@ -48,7 +48,8 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
-        await controller.deleteAccessory(req.params.id);
+        const accessoryId=req.params.id;
+        const response=await controller.deleteAccessory(accessoryId);
         res.status(200).send(await controller.getAllAccessories());
     } catch (error) {
         res.status(500).send({ message: `Error deleting accessory with ID ${req.params.id}`, error });

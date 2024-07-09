@@ -38,9 +38,7 @@ async function updateClient(id, userId, name, email, phone1, phone2, hashedPassw
 }
 async function deleteClient(userId) {
     try {
-        console.log(userId)
         const ordersOfClients=await ordersModel.getOrdersOfClient(userId);
-        console.log(ordersOfClients)
         if(ordersOfClients.length!=0)
         {
             throw new Error("cannot delete this client- he has orders")

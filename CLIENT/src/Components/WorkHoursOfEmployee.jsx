@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getDataById, postNewObject, updateObject } from '../../Fetch';
 import { UserContext } from '../App';
 
-const WorkHoursOfUser = () => {
+const WorkHoursOfEmployee = () => {
     const userData = useContext(UserContext);
     const [workHours, setWorkHours] = useState([]);
     const [isWorking, setIsWorking] = useState(false);
@@ -10,10 +10,10 @@ const WorkHoursOfUser = () => {
     useEffect(() => {
         getDataById("workHours", userData.id)
             .then(data => {
-                console.log(data);
-                setWorkHours([...data])
+                   setWorkHours([...data])
             })
     }, []);
+    
     const getCurrentTime=() =>{
         let now = new Date();
         let hours = now.getHours().toString().padStart(2, '0');
@@ -83,7 +83,7 @@ const WorkHoursOfUser = () => {
                 <tbody>
                     {workHours.map((workHour, index) =>
                         <tr key={index}>
-                            <td>{new Date(workHour.date).toISOString().split('T')[0]}</td>
+                            <td>{workHour.date}</td>
                             <td>{workHour.startTime || '-'}</td>
                             <td>
                                 {workHour.endTime || (
@@ -99,4 +99,4 @@ const WorkHoursOfUser = () => {
     );
 };
 
-export default WorkHoursOfUser;
+export default WorkHoursOfEmployee;

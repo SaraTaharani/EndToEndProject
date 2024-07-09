@@ -17,7 +17,7 @@ async function getDresses(){
     try{
         const sql='SELECT * FROM dresses WHERE id=?';
         const result = await pool.query(sql, [id]);
-        return result[0];
+        return result[0][0];
     }
     catch(err){
         throw err;

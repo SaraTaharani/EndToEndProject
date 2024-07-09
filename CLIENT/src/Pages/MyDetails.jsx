@@ -4,8 +4,8 @@ import { getOrdersOfClient, getTurnsOfClient, updateObject } from '../../Fetch';
 import { UserContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 import Turn from '../Components/Turn';
-import WorkHours from '../Components/workHours';
 import '../css/myDetails.css'
+import WorkHoursOfEmployee from '../Components/WorkHoursOfEmployee';
 
 const MyDetails = () => {
     const navigate = useNavigate();
@@ -114,7 +114,7 @@ const MyDetails = () => {
                 </div>
             )}
 
-            <WorkHours />
+            <WorkHoursOfEmployee />
         </div>
     );
 }

@@ -1,9 +1,9 @@
 const pool = require('../DB.js');
 
-async function createDisabledTurns(date,hour) {
+async function createDisabledTurns(date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes) {
     try {
-        const sql = `INSERT INTO disabledTurns (date,hour) VALUES (?,?)`;
-        const result = await pool.query(sql, [date,hour]);
+        const sql = `INSERT INTO disabledTurns (date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes) VALUES (?,?,?,?,?)`;
+        const result = await pool.query(sql, [date,startTimeHour, startTimeMinutes, endTimeHour, endTimeMinutes]);
         return result[0];
     }
     catch (err) {

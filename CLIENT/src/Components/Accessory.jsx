@@ -17,11 +17,11 @@ const Accessory = ({ accessory ,handleSave}) => {
                 handleSave={handleSave}
                 func="update"
             />
-            <GenericChanges
+            {/* <GenericChanges
                 formData={updateAccessory}
                 attributesArrEn={[]}
                 handleSave={handleSave}
-                func="delete" />
+                func="delete" /> */}
         </div>
     );
 }
