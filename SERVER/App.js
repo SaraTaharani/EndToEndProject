@@ -36,6 +36,9 @@ app.use("/accessories", accessories);
 const dresses=require("./routes/dressesRoute")
 app.use("/dresses", dresses);
 
+const authentication=require("./routes/authenticationRoute")
+app.use("/authentication", authentication);
+
 const orders=require("./routes/ordersRoute")
 app.use("/orders",authEmployee, orders);
 
@@ -53,6 +56,7 @@ app.use("/calendar", authEmployee, calendar);
 
 const workHours=require("./routes/workHoursRoute")
 app.use("/workHours",authEmployee, workHours);
+
 
 const users=require("./routes/usersRoute")
 app.use("/users",authAdmin, users);

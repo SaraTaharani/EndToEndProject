@@ -14,11 +14,20 @@ import MyDetails from './Pages/MyDetails';
 import Users from './Pages/Users';
 import ContactUs from './Pages/ContactUs'
 import ChangePassword from './Pages/ChangePassword';
+import { getData } from './../Fetch';
 
 export const UserContext = createContext();
 
 function App() {
   const [userData, setUserData] = useState({});
+  useEffect(() => {
+    // if(userData){
+    //   getData("authentication")
+    //     .then(data => {
+    //       setUserData(data);
+    //     });
+    // }
+  }, []);
 
   return (
     <UserContext.Provider value={userData}>
@@ -36,8 +45,8 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/changePassword" element={<ChangePassword />} />
               <Route path="/accessories" element={<Accessories />} />
-               <Route path="/myDetails" element={<MyDetails />} />
-               <Route path="/ContactUs" element={<ContactUs />} />
+              <Route path="/myDetails" element={<MyDetails />} />
+              <Route path="/ContactUs" element={<ContactUs />} />
             </Route>
           </Routes>
         </div>
