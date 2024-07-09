@@ -1,0 +1,159 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #f5f5f5;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 0;
+}
+
+/* Title styles */
+.orders-title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Button styles */
+button {
+    background-color: #ac593b; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ac593b;
+}
+
+/* Order container styles */
+.orders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.order-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 80%;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.order-card p {
+    margin: 5px 0;
+}
+
+.order-card button {
+    margin-top: 10px;
+}
+
+/* Order details styles */
+.order-details {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.order-details p {
+    margin: 5px 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="date"],
+.modal-content .p-autocomplete,
+.modal-content .p-multiselect {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content .p-autocomplete input,
+.modal-content .p-multiselect input {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+}
+
+.modal-content .p-autocomplete .p-autocomplete-input,
+.modal-content .p-multiselect .p-multiselect-input {
+    padding: 8px;
+}
+
+.modal-content button {
+    background-color: #ac593b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #ac593b;
+}
+
+.modal-content .radio-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.modal-content .radio-group label {
+    margin-left: 5px;
+}
+
+.modal-content .radio-group input {
+    margin-right: 5px;
+}

@@ -1,0 +1,53 @@
+/* General styles */
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #f5f5f5;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles for the users table and form */
+.users-table {
+    margin-top: 20px;
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.users-table th, .users-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.users-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.users-table tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+.delete-button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-button:hover {
+    background-color: #8f4831;
+}

@@ -1,0 +1,303 @@
+/* public.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 50px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: #ac593b;
+}
+
+.header-nav-link-active {
+    color: #8f4831;
+}
+
+/* Orders and Accessories Page Styles */
+.orders-title, .accessories-title {
+    text-align: center;
+    color: #ac593b;
+    margin-top: 20px;
+}
+
+.orders-container, .accessories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-container, .accessory-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px 0;
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-container:hover, .accessory-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.order-id, .order-name, .order-model, .order-wedding-date, .order-return-date,
+.accessory-id, .accessory-type {
+    margin: 5px 0;
+}
+
+.order-details, .accessory-details {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.show-button, .save-button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.show-button:hover, .save-button:hover {
+    background-color: #8f4831;
+}
+
+.generic-changes-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.generic-changes-form input[type="text"],
+.generic-changes-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.generic-changes-form button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.generic-changes-form button:hover {
+    background-color: #8f4831;
+}
+/* Gallery Page Styles */
+.gallery-title {
+    text-align: center;
+    color: #ac593b;
+    margin-top: 20px;
+}
+
+.photo-tile {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.photo-info {
+    position: relative;
+}
+
+.photo-info img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.photo-info img:hover {
+    opacity: 0.8;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.confirmation-text {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.cancel-button, .confirmation-button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.cancel-button:hover, .confirmation-button:hover {
+    background-color: #8f4831;
+}
+
+/* Calendar Page Styles */
+.myCustomHeight {
+    height: 600px; /* Adjust height as needed */
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .modal-event {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+}
+
+.modal-event h2 {
+    color: #ac593b;
+}
+
+.modal-event p {
+    margin: 10px 0;
+}
+
+.modal-event button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.modal-event button:hover {
+    background-color: #8f4831;
+} */
+
+/* Home Page Styles */
+.fullscreen {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerDiv {
+    z-index: 10;
+    position: relative;
+}
+
+.imageContainer {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageHomePage {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    animation: shrink 5s forwards;
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
+}
+.modal button {
+    background-color: #ac593b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buttonOptions{ 
+    margin-right: 44%;
+    margin-top: 15px;
+    border-radius: 3px;
+
+}
+
+.profile-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Adjust spacing as needed */
+  }
