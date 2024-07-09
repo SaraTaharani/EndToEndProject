@@ -14,6 +14,7 @@ import MyDetails from './Pages/MyDetails';
 import Users from './Pages/Users';
 import ContactUs from './Pages/ContactUs'
 import ChangePassword from './Pages/ChangePassword';
+import TimeManagement from './Pages/TimeManagement';
 import { getData } from './../Fetch';
 
 export const UserContext = createContext();
@@ -27,6 +28,7 @@ function App() {
     //       setUserData(data);
     //     });
     // }
+    
   }, []);
 
   return (
@@ -47,6 +49,8 @@ function App() {
               <Route path="/accessories" element={<Accessories />} />
               <Route path="/myDetails" element={<MyDetails />} />
               <Route path="/ContactUs" element={<ContactUs />} />
+              <Route path="/TimeManagement" element={<TimeManagement />} />
+              
             </Route>
           </Routes>
         </div>

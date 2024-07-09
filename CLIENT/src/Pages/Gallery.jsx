@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/public.css';
+import { UserContext } from '../App';
 import { postNewObject } from '../../Fetch';
 
 function Gallery() {
@@ -9,11 +10,17 @@ function Gallery() {
     const [photos, setPhotos] = useState([]);
     const [openConfirmationWindow, setOpenConfirmationWindow] = useState(false);
     const [idDelPhoto, setIdDelPhoto] = useState(0);
+    const [isAdmin, setIsAdmin] = useState(false);
     const params = useParams();
+    const userData = useContext(UserContext);
 
     useEffect(() => {
-        fetchPhotos(); // Fetch photos on initial load
-    }, []);
+        fetchPhotos();
+        if (userData.role === 'admin') {
+            setIsAdmin(true);
+        }
+        console.log(userData.role);
+    }, [userData]);
 
     const fetchPhotos = () => {
         fetch(`http://localhost:3000/gallery`, {
@@ -68,10 +75,19 @@ function Gallery() {
             .catch((error) => console.error('Error deleting photo:', error));
     };
 
+    const handleDoubleClickPhoto = (photoId) => {
+        if (isAdmin) {
+            setOpenConfirmationWindow(true);
+            setIdDelPhoto(photoId);
+        } 
+            
+        
+    };
+
     const photoElements = photos.map((photo) => (
         <div key={photo.id} className="photo-tile">
             <div className="photo-info">
-                <img src={`http://localhost:3000/images/${photo.imageUrl}`} alt="Not Found" onDoubleClick={() => { setOpenConfirmationWindow(true); setIdDelPhoto(photo.id); }} />
+                <img src={`http://localhost:3000/images/${photo.imageUrl}`} alt="Not Found" onDoubleClick={() => handleDoubleClickPhoto(photo.id)} />
             </div>
         </div>
     ));
@@ -80,8 +96,12 @@ function Gallery() {
         <div>
             <div>
                 <h1>גלריה</h1>
-                <input type="file" onChange={handleFile} />
-                {showAdd && <button onClick={handleUpload}>הוספת תמונה</button>}
+                {isAdmin && (
+                    <>
+                        <input type="file" onChange={handleFile} />
+                        {showAdd && <button onClick={handleUpload}>הוספת תמונה</button>}
+                    </>
+                )}
             </div>
             {photoElements}
             {openConfirmationWindow && (

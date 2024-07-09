@@ -304,6 +304,7 @@ function Calendar1() {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [disabled, setDisabled] = useState([]);
+  const [showModalTurn, setShowModalTurn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [newEvent, setNewEvent] = useState({ type: '', userId: '', start: null, end: null });
   const [clients, setClients] = useState([]);
@@ -501,6 +502,10 @@ function Calendar1() {
   };
 
   const handleDisableTime = () => {
+    postNewObject("accessories", accessory)
+    .then(data => {
+        setAccessories([...data])
+    });
     setIsDisablingTime(true); // Set state to true when disabling time
     setShowModal(true); // Show modal for disabling time
   };
@@ -551,7 +556,7 @@ function Calendar1() {
           </div>
         )}
 
-        {showModal && (
+        {showModalTurn && (
           <div className="modal">
             <div className="modal-content">
               <h2>קביעת תור חדש</h2>
@@ -581,7 +586,7 @@ function Calendar1() {
                 />
               </label>
               <button onClick={handleSaveEvent}>שמור</button>
-              <button onClick={() => setShowModal(false)}>בטל</button>
+              <button onClick={() => setShowModalTurn(false)}>בטל</button>
             </div>
           </div>
         )}
@@ -592,7 +597,7 @@ function Calendar1() {
               <h2>פעולה נדרשת</h2>
               {!isDisablingTime && (
                 <>
-                  <button onClick={() => setShowModal(true)}>קביעת תור חדש</button>
+                  <button onClick={() => {setShowModalTurn(true), setShowModal(false)}}>קביעת תור חדש</button>
                   <button onClick={handleDisableTime}>הפך ללא מאופשר</button>
                 </>
               )}

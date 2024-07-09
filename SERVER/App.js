@@ -57,6 +57,8 @@ app.use("/calendar", authEmployee, calendar);
 const workHours=require("./routes/workHoursRoute")
 app.use("/workHours",authEmployee, workHours);
 
+const activityTime=require("./routes/activityTimeRout")
+app.use("/activityTime",authEmployee, activityTime);
 
 const users=require("./routes/usersRoute")
 app.use("/users",authAdmin, users);
