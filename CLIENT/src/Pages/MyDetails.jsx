@@ -13,6 +13,8 @@ const MyDetails = () => {
     const [myOrders, setMyOrders] = useState([]);
     const [myTurns, setMyTurns] = useState([]);
     const [showDetails, setShowDetails] = useState(false);
+    const userData = useContext(UserContext);
+
     const [formData, setFormData] = useState({
         email: user.email,
         password: '',
@@ -114,7 +116,7 @@ const MyDetails = () => {
                 </div>
             )}
 
-            <WorkHoursOfEmployee />
+           {(userData.role==='admin'|| userData.role==='employee') &&(<WorkHoursOfEmployee />)}
         </div>
     );
 }
