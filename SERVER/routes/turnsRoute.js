@@ -26,20 +26,19 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-
     const response = await controller.creatTurn(req.body.date, req.body.hour, req.body.minutes, req.body.userId, req.body.typeId)
-    res.status(201).send(await controller.getTurns(req.body.userId))
+    res.status(201).send(await controller.getTurns())
     // res.status(201).send("postTurnController succeed")
 })
 
 router.put("/:id", async (req, res) => {
     const response = await controller.updateTurn(req.params.id, req.body.date, req.body.hour, req.body.minutes, req.body.userId, req.body.typeId)
-    res.status(201).send("updateTurn succeed ")
+    res.status(201).send(await controller.getTurns())
 })
 
 router.delete("/:id", async (req, res) => {
     const response = await controller.deleteTurn(req.params.id)
-    res.status(201).send("deleteTurn succeed")
+    res.status(201).send(await controller.getTurns())
 })
 
 module.exports = router

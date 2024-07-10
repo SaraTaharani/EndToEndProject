@@ -29,9 +29,9 @@ async function getClients() {
         throw err;
     }
 }
-async function updateClient(id, userId, name, email, phone1, phone2, hashedPassword,weddingDate) {
+async function updateClient(id, userId, name, email, phone1, phone2,weddingDate) {
     try {
-        return clientsModel.updateClient(id, userId, name, email, phone1, phone2, hashedPassword,weddingDate);
+        return clientsModel.updateClient(id, userId, name, email, phone1, phone2,weddingDate);
     } catch (err) {
         throw err;
     }

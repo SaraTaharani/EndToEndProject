@@ -39,7 +39,7 @@ const Orders = () => {
     <button type="button" onClick={() => setModalOpen(true)}>
       הזמנה חדשה
     </button>
-    {isModalOpen && <EditingOrder handle={handleCreateOrder}/>}
+    {isModalOpen && <EditingOrder handleSubmit={handleCreateOrder}/>}
     <SearchOptions setListFilter={setOrdersFilter} list={orders} />
     <div className="orders-container">
       {ordersFilter.map((order, index) => (

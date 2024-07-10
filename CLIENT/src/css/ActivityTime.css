@@ -40,7 +40,7 @@ body {
     background-color: #e0e0e0;
 }
 
-.edit-button, .delete-button, .save-button, .cancel-button {
+.edit-button, .delete-button, .save-button, .cancle-button {
     background-color: #ac593b;
     color: #fff;
     border: none;
@@ -62,10 +62,10 @@ body {
     background-color: #8f4831;
 }
 
-.cancel-button {
+.cancle-button {
     background-color: #a9a9a9;
 }
 
-.cancel-button:hover {
+.cancle-button:hover {
     background-color: #888888;
 }

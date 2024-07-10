@@ -13,7 +13,7 @@ async function creatTurn( date, hour, minutes, userId, typeId){
 async function getTurns(){
     try{
         const sql=`
-        SELECT t1.date, t1.hour, t1.minutes, u.name, u.userId, u.email, u.phone1, c.weddingDate, t2.type
+        SELECT t1.id ,t1.date, t1.hour, t1.minutes, u.name, u.userId, u.email, u.phone1, c.weddingDate, t2.type
         FROM turns t1
         JOIN users u ON u.id = t1.userId
         JOIN turnTypes t2 ON t2.id = t1.typeId

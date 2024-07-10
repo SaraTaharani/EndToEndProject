@@ -108,7 +108,7 @@ function Gallery() {
                 <div className="modal">
                     <div className="confirmation-text">האם ברצונך למחוק את התמונה?</div>
                     <div className="button-container">
-                        <button className="cancel-button" onClick={() => setOpenConfirmationWindow(false)}>ביטול</button>
+                        <button className="cancle-button" onClick={() => setOpenConfirmationWindow(false)}>ביטול</button>
                         <button className="confirmation-button" onClick={handleDeletePhoto}>מחיקה</button>
                     </div>
                 </div>

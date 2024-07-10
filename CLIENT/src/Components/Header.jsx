@@ -6,6 +6,7 @@ import logo from '../../images/logo.png';
 import profileImage from '../../images/240_F_560260880_O1V3Qm2cNO5HWjN66mBh2NrlPHNHOUxW.png';
 
 import '../css/public.css';
+import '../css/Header.css';
 
 function Header({ setUserData }) {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function Header({ setUserData }) {
         </div>
         <div className="profile">
           <img src={profileImage} alt="Profile" className="profile-image" />
-          {userData && <span>שלום {userData.name}</span>}
+          {userData && <span> {userData.name}</span>}
         </div>
         <nav className="header-nav">
           <NavLink
@@ -45,12 +46,12 @@ function Header({ setUserData }) {
             </NavLink>
           )}
 
-          {userData.role == "employee" || userData.role == "admin" && <NavLink
+          {(userData.role == "employee" || userData.role == "admin" )&&( <NavLink
             to='/calendar'
             className={({ isActive }) => isActive ? "header-nav-link header-nav-link-active" : "header-nav-link"}
           >
             תורים
-          </NavLink>}
+          </NavLink>)}
           <NavLink
             to='/gallery'
             className={({ isActive }) => isActive ? "header-nav-link header-nav-link-active" : "header-nav-link"}
@@ -58,14 +59,13 @@ function Header({ setUserData }) {
             גלריה
           </NavLink>
 
-          {userData.role == "employee" || userData.role == "admin" &&
-            <NavLink
+          {(userData.role == "employee" || userData.role == "admin" )&&( <NavLink
               to='/orders'
               className={({ isActive }) => isActive ? "header-nav-link header-nav-link-active" : "header-nav-link"}
             >
               הזמנות
             </NavLink>
-          }
+          )}
           {userData.role == "admin" &&
             <NavLink
               to='/dresses'

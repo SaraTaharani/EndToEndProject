@@ -74,7 +74,7 @@ const ActivityTime = () => {
                                                 };
                                                 handleSave(activityTime.id, updatedActivityTime);
                                             }}>שמור</button>
-                                            <button className="cancel-button" onClick={() => setCurrentEditId(null)}>בטל</button>
+                                            <button className="cancle-button" onClick={() => setCurrentEditId(null)}>בטל</button>
                                         </td>
                                     </>
                                 ) : (

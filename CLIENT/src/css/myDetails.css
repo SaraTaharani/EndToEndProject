@@ -20,7 +20,7 @@ body {
 }
 
 /* Button for updating details */
-.update-button, .save-button, .cancel-button {
+.update-button, .save-button, .cancle-button {
     background-color: #ac593b;
     color: #fff;
     border: none;
@@ -31,7 +31,7 @@ body {
 }
 
 /* Hover effect for buttons */
-.update-button:hover, .save-button:hover, .cancel-button:hover {
+.update-button:hover, .save-button:hover, .cancle-button:hover {
     background-color: #8f4831;
 }
 

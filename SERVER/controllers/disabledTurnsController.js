@@ -9,6 +9,7 @@ async function getDisabledTurns() {
 }
 async function deleteDisabledTurns(id) {
     try {
+        console.log(id)
         return model.deleteDisabledTurns(id);
     } catch (err) {
         throw err;

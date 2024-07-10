@@ -56,7 +56,7 @@ const MyDetails = () => {
         });
     }
 
-    const handleCancel = () => {
+    const handleCancle = () => {
         setShowDetails(false); // Close details without saving
     }
 
@@ -112,7 +112,7 @@ const MyDetails = () => {
                         onChange={handleChange}
                     />
                     <button className="save-button" onClick={handleSaveFunction}>שמור</button>
-                    <button className="cancel-button" onClick={handleCancel}>ביטול</button>
+                    <button className="cancle-button" onClick={handleCancle}>ביטול</button>
                 </div>
             )}
 

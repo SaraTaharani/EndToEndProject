@@ -1,12 +1,12 @@
 /* src/css/home.css */
-#HomePage {
+/* #HomePage {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .imageHomePage {
     width: 100%;
-    max-width: 600px;
+   
     height: auto;
 }
 
@@ -20,7 +20,7 @@ button {
 
 .sidebar {
     position: fixed;
-    /* right: -300px; */
+    right: -300px;
     left: 0;
     top: 0;
     height: 100%;
@@ -48,4 +48,131 @@ button {
 
 .sidebar p {
     margin: 10px 0;
-}
+} */
+
+
+
+
+#HomePage {
+    position: relative;
+    height: 200vh; /* Make the container height larger to enable scrolling */
+    overflow: hidden;
+  }
+  
+  .imageContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+  }
+  
+  .imageHomePage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .content {
+    position: relative;
+    height: 100vh; /* Make the content height equal to viewport height */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .aboutSection {
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: to make the text readable */
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 100vh; /* Push the about section down to make it visible only on scroll */
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #fff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+   
+  
+
+
+
+  #HomePage {
+    /* position: relative; */
+  }
+  
+  .imageContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Make sure the image is behind the content */
+  }
+  
+  .imageHomePage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .content {
+    /* position: relative; */
+    margin-top: 650px;
+    /* max-width: 800px; */
+    height: 200px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6); /* Optional: to make the content stand out */
+    z-index: 1; /* Make sure the content is above the image */
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 200px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s;
+    z-index: 2; /* Make sure the sidebar is above the content */
+    padding-top: 200px;
+    padding-right: 30px;
+  }
+  
+  .sidebar.open {
+    right: 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color:#ac593b;
+    margin-top: 100px;
+  }
+  

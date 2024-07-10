@@ -177,6 +177,7 @@ async function loginModel(email) {
   try {
     const sql = 'SELECT u.id, email, password FROM users u JOIN passwords ON u.id = passwords.userId WHERE u.email = ?';
     const [result] = await pool.query(sql, [email]);
+    console.log(result)
     return result.length > 0 ? result[0] : null;
   } catch (err) {
     throw err;
@@ -239,19 +240,5 @@ async function deleteUser(id) {
     throw err;
   }
 }
-//אם עושים REFRESHTOKEN
-//צריך לתקן את זה!!!!
-// async function setUsers(users) {
-//   try {
-//     const sqlDeleteOldUsers = 'DELETE FROM users';
-//     const result1 = await pool.query(sql1, [id]);
-//     const sql = 'DELETE FROM users WHERE id=?';
-//     const result = await pool.query(sql, [id]);
-//     return result[0];
-//   } catch (err) {
-//     throw err;
-//   }
-// }
-
 
 module.exports = { createUser, getUsers, getUserById, getUserByEmail, updateUser, deleteUser, loginModel, updateUserPassword};

@@ -24,8 +24,8 @@ async function loginController(email, password) {
         if (!passwordMatch) {
             throw new Error('Incorrect password');
         }
-
-        return userToLogIn;
+        const returnUser={id:userToLogIn.id, email:userToLogIn.email}
+        return returnUser;
     }
     catch (err) {
         throw err;

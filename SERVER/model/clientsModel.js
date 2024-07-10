@@ -39,14 +39,17 @@ async function getClients(){
     }
   }
 
-async function updateClient(id, userId, name, email, phone1, phone2, hashedPassword,weddingDate){
+async function updateClient(id, userId, name, email, phone1, phone2,weddingDate){
   try{
+    console.log(id)
       const sqlUser= 'UPDATE users SET userId=?, name=?, email=?, phone1=?, phone2=? WHERE id=?';
       const resultUser = await pool.query(sqlUser, [userId, name, email, phone1, phone2, id]);
-      const sqlPassword= 'UPDATE passwords SET password=? WHERE userId=?';
-      const resultPassword = await pool.query(sqlPassword, [hashedPassword, id]);
+      const userIdFromUsersTable=await pool.query('SELECT userId FROM clients WHERE id=?', [id])
       const sqlClients= 'UPDATE clients SET weddingDate=? WHERE userId=?';
-      const resultClient = await pool.query(sqlClients, [weddingDate, id]);
+      const resultClient = await pool.query(sqlClients, [weddingDate,userIdFromUsersTable[0][0]]);
+      console.log(`userId ${userIdFromUsersTable}`)
+      console.log(`cientId ${id}`)
+
       return resultUser[0];
   }
   catch(err){
