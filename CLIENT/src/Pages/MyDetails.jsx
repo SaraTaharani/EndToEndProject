@@ -39,12 +39,12 @@ const MyDetails = () => {
             .then(data => {
                 setFormData({
                     email: data.email,
-                    password: '', // Do not update password from server response
+                    password: '', 
                     name: data.name,
                     phone1: data.phone1,
                     phone2: data.phone2
                 });
-                setShowDetails(false); // Close details after saving
+                setShowDetails(false); 
             });
     }
 
@@ -57,7 +57,7 @@ const MyDetails = () => {
     }
 
     const handleCancle = () => {
-        setShowDetails(false); // Close details without saving
+        setShowDetails(false); 
     }
 
     return (

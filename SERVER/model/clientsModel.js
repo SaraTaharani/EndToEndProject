@@ -18,9 +18,6 @@ async function getClients(){
     try{
         const sql='SELECT c.id, u.userId, name, email, phone1, phone2, weddingDate  FROM users u , clients c WHERE  u.id=c.userId and u.roleId=3';
         const result = await pool.query(sql);
-        console.log('result[0]')
-        console.log(result[0])
-
         return result[0];
        }
     catch(err){
@@ -41,14 +38,11 @@ async function getClients(){
 
 async function updateClient(id, userId, name, email, phone1, phone2,weddingDate){
   try{
-    console.log(id)
       const sqlUser= 'UPDATE users SET userId=?, name=?, email=?, phone1=?, phone2=? WHERE id=?';
       const resultUser = await pool.query(sqlUser, [userId, name, email, phone1, phone2, id]);
       const userIdFromUsersTable=await pool.query('SELECT userId FROM clients WHERE id=?', [id])
       const sqlClients= 'UPDATE clients SET weddingDate=? WHERE userId=?';
       const resultClient = await pool.query(sqlClients, [weddingDate,userIdFromUsersTable[0][0]]);
-      console.log(`userId ${userIdFromUsersTable}`)
-      console.log(`cientId ${id}`)
 
       return resultUser[0];
   }

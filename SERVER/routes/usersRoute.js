@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     try{
         const response = await controller.createUser(req.body.userId,req.body.name, req.body.email,req.body.phone1,req.body.phone2,req.body.password)
         const user = await controller.getUserById(response.userId);
-        res.status(201).send(await controller.getUsers());
+        res.status(200).send(await controller.getUsers());
     }
     catch(err)
     {
@@ -35,13 +35,13 @@ router.post('/', async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     const response = await controller.deleteUser(req.params.id)
-    res.status(201).send(await controller.getUsers())
+    res.status(200).send(await controller.getUsers())
 })
 router.put("/:id", async (req, res) => {
     const idUser = req.params.id;
     console.log(idUser)
     const response = await controller.updateUser(idUser,req.body.name, req.body.email,req.body.phone1,req.body.phone2,req.body.password)
-    res.status(201).send(await controller.getUserById(idUser))
+    res.status(200).send(await controller.getUserById(idUser))
 })
 
 

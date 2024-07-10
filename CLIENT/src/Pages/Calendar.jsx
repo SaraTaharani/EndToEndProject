@@ -25,7 +25,7 @@ function Calendar1() {
   const [email, setEmail] = useState('');
   const [showSignUp, setShowSignUp] = useState(false);
   const [activityTimes, setActivityTimes] = useState([]);
-  const [isDisablingTime, setIsDisablingTime] = useState(false); // State to track if user is disabling time slot
+  const [isDisablingTime, setIsDisablingTime] = useState(false); 
   const [openConfirmationWindow, setOpenConfirmationWindow] = useState(false);
   const [DisablingTimeBoll, setDisablingTimeBoll] = useState(false);
 
@@ -172,13 +172,13 @@ function Calendar1() {
         setEvents([...events, ...formattedDisabled])
         setShowModal(false);
         setIsDisablingTime(false); 
-        // Reset state to false after save
+       
       })
   };
 
   const handleCancleModal = () => {
     setSelectedEvent(null);
-    setIsDisablingTime(false); // Reset state to false if user cancels
+    setIsDisablingTime(false); 
   };
   const handleCancleTurnOrDisableTurn = (type) => {
     console.log(selectedEvent)

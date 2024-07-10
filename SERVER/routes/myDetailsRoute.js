@@ -7,18 +7,18 @@ router.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 router.use(cors());
 router.use(cors({
-     origin: 'http://localhost:5173', // Replace with your frontend app URL
+     origin: 'http://localhost:5173', 
      credentials: true
    }));
  
 router.get("/:userId/orders", async(req, res) => {
     const orders = await ordersController.getOrdersOfClient(req.params.userId);
-     res.status(201).send(orders)
+     res.status(200).send(orders)
 });
 
 router.get("/:userId/turns", async(req, res) => {
         const turns = await turnsController.getTurnsOfClient(req.params.userId);
-     res.status(201).send(turns)
+     res.status(200).send(turns)
 });
 
 module.exports = router

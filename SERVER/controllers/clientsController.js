@@ -3,7 +3,6 @@ const usersModel = require('../model/usersModel');
 const ordersModel=require('../model/ordersModel');
 async function createClient(name, email, phone1, password) {
     try {
-        console.log(email)
         const users = await usersModel.getUserByEmail(email);
         if (users.length != 0) {
             throw Error("user is already exist")

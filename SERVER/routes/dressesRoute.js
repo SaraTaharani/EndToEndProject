@@ -5,7 +5,7 @@ router.use (express.json());
 router.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 router.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend app URL
+    origin: 'http://localhost:5173', 
     credentials: true
   }));
 

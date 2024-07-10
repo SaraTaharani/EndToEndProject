@@ -7,14 +7,13 @@ const controller = require('../controllers/usersController')
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend app URL
+    origin: 'http://localhost:5173', 
     credentials: true
   }));
 
 router.post('/', async (req, res) => {
     try {
         const user = req.body;
-        console.log('jjs')
         const response = await controller.postClient(user.name, user.email, user.phone1, user.password, user.dressStyle, user.remarks);
         res.status(200).send(await controller.getUserById(response.insertId));
     } catch (err) {

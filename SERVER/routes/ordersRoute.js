@@ -6,13 +6,13 @@ router.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 router.use(cors());
 router.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend app URL
+    origin: 'http://localhost:5173', 
     credentials: true
   }));
 router.get("/", async (req, res) => {
     try {
         const orders = await controller.getAllOrdrers();
-        res.status(201).send(orders)
+        res.status(200).send(orders)
     }
     catch (err) {
         res.status(500).send(err)
@@ -22,28 +22,24 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     const id = req.params.id;
     const Dress = await controller.getOrdrer(id);
-    res.status(201).send(Dress)
+    res.status(200).send(Dress)
 });
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
     const response = await controller.createOrder(req.body.date, req.body.returnDate, req.body.clientId, req.body.dressId, req.body.repairs, req.body.paidInAdvance, req.body.accessoriesId)
-    res.status(201).send(await controller.getAllOrdrers())
+    res.status(200).send(await controller.getAllOrdrers())
 })
 
 router.put("/:id", async (req, res) => {
     const id = req.params.id
     const response = await controller.updateOrder(id, req.body.date, req.body.returnDate, req.body.clientId, req.body.dressId, req.body.repairs, req.body.paidInAdvance, req.body.accessoriesId)
-    res.status(201).send(await controller.getAllOrdrers())
+    res.status(200).send(await controller.getAllOrdrers())
 })
 
 router.delete("/:id", async (req, res) => {
     const orderId = req.params.id;
-    console.log('orderId router')
-
-    console.log(orderId)
     const response = await controller.deleteOrder(orderId)
-    res.status(201).send(await controller.getAllOrdrers())
+    res.status(200).send(await controller.getAllOrdrers())
 })
 
 module.exports = router

@@ -1,9 +1,5 @@
 const model = require('../model/activityTimeModel');
 
-
-
-
-
 async function getAllActivityTimes() {
     try {
         return await model.getAllActivityTimes();

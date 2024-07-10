@@ -7,12 +7,11 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 router.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend app URL
+    origin: 'http://localhost:5173', 
     credentials: true
   }));
 
 router.get("/", async(req, res) => {
-    console.log('rout')
     res.status(200).send(await controller.getClients())
 });
 router.post('/', async (req, res) => {
@@ -31,15 +30,12 @@ router.put("/:id", async (req, res) => {
 });
 router.delete("/:id", async (req, res) => {
     try{
-        console.log("route")
         const clientId=req.params.id;
-        console.log(clientId)
         const response = await controller.deleteClient(clientId);
         res.status(200).send(await usersController.getUsers());
 
     }
     catch(err){
-        console.log(err.message)
         res.status(500).send(err.message);  
     }
 })

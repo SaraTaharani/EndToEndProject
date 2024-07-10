@@ -177,7 +177,6 @@ async function loginModel(email) {
   try {
     const sql = 'SELECT u.id, email, password FROM users u JOIN passwords ON u.id = passwords.userId WHERE u.email = ?';
     const [result] = await pool.query(sql, [email]);
-    console.log(result)
     return result.length > 0 ? result[0] : null;
   } catch (err) {
     throw err;
@@ -186,10 +185,8 @@ async function loginModel(email) {
 
 async function getUserByEmail(email) {
   try {
-    console.log(email)
     const sql = 'SELECT * FROM users where email=?';
     const [result] = await pool.query(sql, [email]);
-   
     return result;
   }
   catch (err) {
@@ -199,14 +196,9 @@ async function getUserByEmail(email) {
 
 async function getUserById(id) {
   try {
-    console.log('id')
-    console.log(id)
+  
     const sql = 'SELECT u.id, userId, name, email, phone1, phone2, type role FROM users u JOIN roles r ON u.roleId=r.id WHERE u.id=?';
     const [result] = await pool.query(sql, [id]);
-    console.log(result[0])
-    console.log('result[0]modeledit')
-    console.log(JSON.stringify(result[0]))
-    console.log('JSONmodeledit')
     return result.length > 0 ? JSON.stringify(result[0]) : null;
   }
   catch (err) {
@@ -220,8 +212,6 @@ async function updateUser(id, name, email, phone1, phone2, hashedPassword) {
     const sqlPassword = 'UPDATE passwords SET password=? WHERE userId=?';
     const resultUser = await pool.query(sqlUser, [name, email, phone1, phone2, id]);
     const resultPassword = await pool.query(sqlPassword, [hashedPassword, id]);
-    console.log('resultUser[0]')
-    console.log(resultUser[0])
     return resultUser[0];
   }
   catch (err) {

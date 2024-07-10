@@ -1,8 +1,5 @@
 const pool = require('../DB.js');
-// const sql=`SELECT o.id, u.userId, name, email, phone1, phone2, weddingDate, model, repairs,type
-// FROM orders o, users u, clients c,dresses d, accessories a1, accessoriesInOrder a2
-//  WHERE o.clientId=c.id and c.userId=u.id and o.dressId=d.id
-//  GROUP BY o.id `;
+
 async function getOrders() {
     try {
 

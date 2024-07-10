@@ -22,12 +22,6 @@ export const UserContext = createContext();
 function App() {
   const [userData, setUserData] = useState({});
   useEffect(() => {
-    // if(userData){
-    //   getData("authentication")
-    //     .then(data => {
-    //       setUserData(data);
-    //     });
-    // }
     
   }, []);
 

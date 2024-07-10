@@ -25,7 +25,7 @@ const sendMail = async (mailOptions) => {
     console.log('Email sent:', info.response);
   } catch (error) {
     console.error('Error sending email:', error);
-    throw error; // Re-throw the error to be caught in the calling function
+    throw error; 
   }
 };
 
@@ -78,7 +78,7 @@ const sendEmailToUser = async (email) => {
     await model.updateUserPassword(user[0].id, temporaryPassword);
   } catch (error) {
     console.error('Error in sendEmailToUser:', error);
-    throw error; // Re-throw the error to be caught in the calling function
+    throw error;
   }
 };
 

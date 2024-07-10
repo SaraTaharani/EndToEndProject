@@ -8,7 +8,7 @@ const path = require('path');
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend app URL
+    origin: 'http://localhost:5173',
     credentials: true
   }));
 
@@ -38,7 +38,7 @@ router.use(verifyJWT);
 router.post('/', authAdmin, upload.single('image'), async (req, res) => {
     const image = req.file.filename;
     const response = await controller.createPhoto(image);
-    res.status(201).send(await controller.getGallery());
+    res.status(200).send(await controller.getGallery());
 });
 
 router.delete("/:id", authAdmin, async (req, res) => {

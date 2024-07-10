@@ -10,45 +10,7 @@ const LogIn = ({ setUserData }) => {
         password: ""
     });
 
-    // const USERS_API_URL = `users?username=${formData.username}&password=${formData.password}`;
-
-    //     const fetchUsers = async () => {
-    //       try {
-    //         // serverRequests('GET', USERS_API_URL, null).then((usersArr) => {
-    //         //   console.log(usersArr);
-    //         //   if (usersArr.length > 0) {
-    //         //     const user = usersArr[0];
-    //         //     console.log('User data:', user); 
-    //         //     setUserData(user);
-    //         //     alert(`Login successful! Welcome back ${user.username}😎`);
-    //         //     const { password ,...userInLocalStorage } = user;
-    //         //     localStorage.setItem('loggedInUser', JSON.stringify(userInLocalStorage));
-    //         //     console.log('Stored user data:', userInLocalStorage); 
-    //         //     navigate(`/home`);
-    //         //   } else {
-    //         //     alert("Login failed. Invalid username or password.");
-    //         //   }
-    //         serverRequests('POST', 'login', formData)
-    //         .then((user) => {
-    //           if (user) {
-    //             console.log('User data:', user[0]); 
-    //             setUserData(user[0]);
-    //             alert(`Login successful! Welcome back ${user[0].username}😎`);
-    //             localStorage.setItem('loggedInUser', JSON.stringify(user[0]));
-    //             console.log('Stored user data:', user[0]); 
-    //             navigate(`/home`);
-    //           } else {
-    //             alert("Login failed. Invalid username or password.");
-    //           }
-
-    //         })
-    //       } catch (err) {
-    //         alert("Login failed. An error occurred.");
-    //         console.log(err);
-    //       }
-    //     }; 
-    //     fetchUsers();
-    //   }
+ 
 
 
     const handleChange = (e) => {
@@ -78,7 +40,6 @@ const LogIn = ({ setUserData }) => {
             const data = await response.json();
             const user = JSON.parse(data.user);
             setUserData(user);
-            // setTokenInCookie(data.token)
             navigate('/');
             alert('Logged in successfully!');
         } catch (error) {
