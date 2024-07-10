@@ -249,10 +249,12 @@ function Calendar1() {
 
 
   return (
-    <div>
+
+    <div className="Calendar">
       {(userData.role == "admin" || userData.role == "employee") &&
         <button className='buttonOptions' onClick={() => setShowSignUp(true)}>הוספת לקוחה</button>
       }
+
       <div className="myCustomHeight">
         <Calendar
           onSelectSlot={onSelectSlot}
