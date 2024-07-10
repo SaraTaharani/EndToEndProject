@@ -11,12 +11,10 @@ body {
 .header-logo-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .header-logo {
     height: 50px;
-    margin-left: 30px;
 }
 
 .header-nav {
@@ -30,15 +28,9 @@ body {
     color: #ac593b;
 }
 
-.header-nav-link:hover {
-    color: #40251c;
-}
-
 .header-nav-link-active {
-    color: #40251c;
-    /* text-decoration: underline; */
+    color: #8f4831;
 }
-
 
 /* Orders and Accessories Page Styles */
 .orders-title, .accessories-title {
@@ -131,10 +123,8 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 270px;
+    width: 300px;
     text-align: center;
-    display: inline-block;
-
 }
 
 .photo-info {
@@ -177,7 +167,7 @@ body {
     margin-top: 10px;
 }
 
-.cancel-button, .confirmation-button {
+.cancle-button, .confirmation-button {
     background-color: #ac593b;
     color: #fff;
     border: none;
@@ -187,7 +177,7 @@ body {
     border-radius: 5px;
 }
 
-.cancel-button:hover, .confirmation-button:hover {
+.cancle-button:hover, .confirmation-button:hover {
     background-color: #8f4831;
 }
 
@@ -200,6 +190,7 @@ body {
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 /* .modal-event {
     position: fixed;
@@ -261,7 +252,7 @@ body {
     width: 100%;
     height: 500px;
     object-fit: cover;
-    /* animation: shrink 5s forwards; */
+    animation: shrink 5s forwards;
 }
 
 @keyframes shrink {
@@ -276,19 +267,13 @@ body {
 /* Header Styles */
 header {
     display: flex;
-    
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     background-color: #fff;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
     z-index: 10;
-    position: sticky;
-    top: 0; 
-    position: fixed;
-    
-    width: 100vw;
+    position: relative;
 }
 .modal button {
     background-color: #ac593b;
@@ -315,6 +300,16 @@ header {
     height: 50px; /* Adjust the size as needed */
     border-radius: 50%;
     object-fit: cover;
-    /* margin-bottom: 10px; Adjust spacing as needed */
-
-  }
+    margin-bottom: 10px; /* Adjust spacing as needed */
+  }.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    left: 0;
+    padding: 15px;
+    margin-left:1200px;
+}.header-nav{
+    left: 0;
+    }
+ 
