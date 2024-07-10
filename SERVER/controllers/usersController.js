@@ -1,6 +1,5 @@
 
 const usersModel = require('../model/usersModel');
-
 const clientModel = require('../model/clientsModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -58,24 +57,6 @@ async function getUserById(userId) {
         throw err;
     }
 }
-async function createUser(userId, name, email, phone1, phone2, password) {
-    try {
-        const userToRegister = await usersModel.getUserByEmail(email);
-        if (userToRegister.length != 0) {
-            throw Error("user is already exist")
-        }
-        else {
-            const hashedPassword = await bcrypt.hash(password, 10);
-            const response = await usersModel.createUser(userId, name, email, phone1, phone2, hashedPassword);
-            return response;
-        }
-    }
-    catch (err) {
-
-        throw err;
-
-    }
-}
 
 
 
@@ -116,6 +97,26 @@ async function deleteUser(id) {
     }
 }
 
+
+
+async function createUser(userId, name, email, phone1, phone2, password) {
+    try {
+        const userToRegister = await usersModel.getUserByEmail(email);
+        if (userToRegister.length != 0) {
+            throw Error("user is already exist")
+        }
+        else {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const response = await usersModel.createUser(userId, name, email, phone1, phone2, hashedPassword);
+            return response;
+        }
+    }
+    catch (err) {
+
+        throw err;
+
+    }
+}
 
 module.exports = { loginController, getUserByEmail, createUser, getUsers, getUsers, getUserById, postClient, updateUser, deleteUser }
 
