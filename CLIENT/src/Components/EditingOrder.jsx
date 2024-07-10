@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import '../css/public.css';
 import { getData } from '../../Fetch';
@@ -5,7 +6,7 @@ import { AutoComplete } from 'primereact/autocomplete';
 import { MultiSelect } from 'primereact/multiselect';
 import '../css/order.css';
 
-const EditingOrder = ({ handleSubmit, order }) => {
+const EditingOrder = ({ handleSubmit, handleClose, order }) => {
     const [dress, setDress] = useState(order?.model || "");
     const [dresses, setDresses] = useState([]);
     const [filteredDresses, setFilteredDresses] = useState(dresses);
@@ -37,7 +38,6 @@ const EditingOrder = ({ handleSubmit, order }) => {
         paidInAdvance: order?.paidInAdvance || false
     });
      
-    
     const [client, setClient] = useState({
         email: '',
         name: '',
@@ -45,24 +45,23 @@ const EditingOrder = ({ handleSubmit, order }) => {
         phone2: '',
         userId: '',
         weddingDate: ''
-    })
-
+    });
 
     useEffect(() => {
-        console.log(order)
         getData("clients")
             .then(data => {
-                setClients([...data])
+                setClients([...data]);
             });
         getData("dresses")
             .then(data => {
-                setDresses([...data])
+                setDresses([...data]);
             });
         getData("accessories")
             .then(data => {
-                setAccessories([...data])
+                setAccessories([...data]);
             });
     }, []);
+
     const changeInputHandler = (e) => {
         const { value } = e.target;
         setFormData((prevFormData) => ({
@@ -74,12 +73,15 @@ const EditingOrder = ({ handleSubmit, order }) => {
             repairs: value
         }));
     };
+
     const searchEmail = (event) => {
-        setFilteredClients(clients.filter(client => client.email.toLowerCase().includes(event.query.toLowerCase())))
-    }
+        setFilteredClients(clients.filter(client => client.email.toLowerCase().includes(event.query.toLowerCase())));
+    };
+
     const searchDress = (event) => {
-        setFilteredDresses(dresses.filter(dress => dress.model.toLowerCase().includes(event.query.toLowerCase())))
-    }
+        setFilteredDresses(dresses.filter(dress => dress.model.toLowerCase().includes(event.query.toLowerCase())));
+    };
+
     const handleClientSelect = (client) => {
         setOrderData((prevOrderData) => ({
             ...prevOrderData,
@@ -89,29 +91,36 @@ const EditingOrder = ({ handleSubmit, order }) => {
             ...prevFormData,
             name: client.name,
             phone1: client.phone1,
-        }))
+        }));
         setClient((prevClient) => ({
             ...prevClient,
             email: client.email,
             name: client.name,
             phone1: client.phone1
-        }))
+        }));
     };
+
     const handleDressSelect = (dress) => {
         setOrderData((prevOrderData) => ({
             ...prevOrderData,
             dressId: dress.id
         }));
     };
+
     const handleAccessoriesSelect = (accessories) => {
-        const accessoriesId = accessories.map((accessory) => (accessory.id))
+        const accessoriesId = accessories.map((accessory) => (accessory.id));
         setOrderData((prevOrderData) => ({
             ...prevOrderData,
             accessoriesId: accessoriesId
         }));
     };
+
     const handlePaidInAdvanceChange = (event) => {
         const value = event.target.value === 'true';
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            paidInAdvance: value
+        }));
         setOrderData((prevOrderData) => ({
             ...prevOrderData,
             paidInAdvance: value
@@ -120,7 +129,6 @@ const EditingOrder = ({ handleSubmit, order }) => {
 
     const changeHandler = (e) => {
         const { name, value } = e.target;
-
 
         if (name === "weddingDate") {
             const weddingDate = new Date(value).toISOString().split('T')[0];
@@ -241,7 +249,7 @@ const EditingOrder = ({ handleSubmit, order }) => {
                     value={selectedAccessories}
                     onChange={(e) => {
                         setSelectedAccessories(e.value);
-                        handleAccessoriesSelect(e.value)
+                        handleAccessoriesSelect(e.value);
                     }}
                     options={accessories}
                     optionLabel="type"
@@ -249,12 +257,12 @@ const EditingOrder = ({ handleSubmit, order }) => {
                 />
                 <div className="radio-group">
                     <p>שולם מקדמה:</p>
-                      <label>
+                    <label>
                         <input
                             type="radio"
                             name="paidInAdvance"
                             value="true"
-                            checked={order?order.paidInAdvance:false}
+                            checked={formData.paidInAdvance === true}
                             onChange={handlePaidInAdvanceChange}
                         />
                         כן
@@ -264,18 +272,23 @@ const EditingOrder = ({ handleSubmit, order }) => {
                             type="radio"
                             name="paidInAdvance"
                             value="false"
-                           checked={order?order.paidInAdvance:true}
+                            checked={formData.paidInAdvance === false}
                             onChange={handlePaidInAdvanceChange}
-                        />
-                        לא
-                    </label>
-                </div>
-                <button type="button" onClick={() => handleSubmit(orderData, client)}>
-                    צור הזמנה
-                </button>
-            </div>
-        </div>
-    );
-};
-
-export default EditingOrder;
+                                />
+                                                        לא
+                                                    </label>
+                                                </div>
+                                                <div className="modal-buttons">
+                                                    <button type="button" onClick={() => handleSubmit(orderData, client)}>
+                                                        צור הזמנה
+                                                    </button>
+                                                    <button type="button" onClick={handleClose}>
+                                                        ביטול
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                };
+                                
+                                export default EditingOrder;
