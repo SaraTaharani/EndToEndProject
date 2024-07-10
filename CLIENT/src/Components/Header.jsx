@@ -5,7 +5,6 @@ import { UserContext } from '../App';
 import logo from '../../images/logo.png';
 import profileImage from '../../images/240_F_560260880_O1V3Qm2cNO5HWjN66mBh2NrlPHNHOUxW.png';
 import '../css/public.css';
-// import '../css/Header.css';
 
 function Header({ setUserData }) {
   const navigate = useNavigate();

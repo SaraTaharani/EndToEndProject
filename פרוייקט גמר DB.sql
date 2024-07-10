@@ -213,8 +213,18 @@ VALUES
 ('Friday', 9, 0, 12, 0);
 -- הוספת נתונים לטבלת gallery
 INSERT INTO gallery (imageUrl) VALUES
-('image_1719350149221.png'),
-('image_1719350200134.png');
+('1.png'),
+('2.png'),
+('3.png'),
+('4.png'),
+('5.png'),
+('6.png'),
+('7.png'),
+('8.png'),
+('9.png'),
+('10.png'),
+('11.png'),
+('4.png');
 
 -- הוספת נתונים לטבלת work_hours
 INSERT INTO workHours (employeeId, date, startTime, endTime, duration) 
