@@ -1,4 +1,4 @@
 # EndToEndProject
-Description: Developed a web-based system as part of a two-person team. The system allows the salon manager
-to create and manage profiles for administrators, employees, and customers. It supports booking appointments,
-managing employee schedules, and tracking work hours.
+A bridal salon management system that allows the salon manager to create and manage profiles for managers, employees and customers. 
+The system supports booking appointments, managing schedules and tracking working hours.
+Each employee can view a personal summary of his working hours through a dedicated portal.
