@@ -30,12 +30,14 @@ router.put("/:id", async (req, res) => {
 });
 router.delete("/:id", async (req, res) => {
     try{
+        console.log("delete client route: " )
         const clientId=req.params.id;
         const response = await controller.deleteClient(clientId);
         res.status(200).send(await usersController.getUsers());
 
     }
     catch(err){
+        console.log(err.message)
         res.status(500).send(err.message);  
     }
 })

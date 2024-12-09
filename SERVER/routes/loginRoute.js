@@ -12,6 +12,7 @@ router.use(cors({
   }));
 
 router.post('/', async (req, res) => {
+    console.log("loginRout")
     try {
         const user = await controller.loginController(req.body.email, req.body.password);
         if (user) {

@@ -108,6 +108,9 @@ export function deleteObject(type, id) {
          return data;
       })
       .catch(err => {
+         if (err.message) {
+            alert(err.message); // תציג את הודעת השגיאה למשתמש
+        }
          console.error(`Error delete ${type}:`, err)
          return null
       });

@@ -23,6 +23,7 @@ const LogIn = ({ setUserData }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
         try {
             const response = await fetch('http://localhost:3000/logIn', {
                 method: 'POST',

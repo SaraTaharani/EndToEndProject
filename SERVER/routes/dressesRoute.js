@@ -32,6 +32,7 @@ router.put("/:id",async(req,res)=>{
 })
 
 router.delete("/:id",async(req,res)=>{
+    console.log("deleteDressRout")
     const response = await controller.deleteDress(req.params.id)
     res.status(201).send(await controller.getAllDresses())
 })

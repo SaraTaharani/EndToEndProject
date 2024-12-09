@@ -13,7 +13,9 @@ const WorkHoursOfEmployee = () => {
                    setWorkHours([...data])
             })
     }, []);
-    
+    console.log(userData.id)
+    console.log(userData)
+
     const getCurrentTime=() =>{
         let now = new Date();
         let hours = now.getHours().toString().padStart(2, '0');

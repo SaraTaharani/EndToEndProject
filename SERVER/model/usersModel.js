@@ -223,6 +223,8 @@ async function deleteUser(id) {
   try {
     const sqlPassword = 'DELETE FROM passwords where userId=?';
     const result1 = await pool.query(sqlPassword, [id]);
+    const sqlActivityTime = 'DELETE FROM workHours WHERE employeeId=?';
+    await pool.query(sqlActivityTime, [id]);
     const sql = 'DELETE FROM users WHERE id=?';
     const result = await pool.query(sql, [id]);
     return result[0];
